@@ -8,7 +8,7 @@ $(document).ready(() => {
   const fetchPrimes = () => {
     const startTM = moment();
     qc++;
-    fetch("/kubernetes-php-loadtest/prime.php")
+    fetch("/prime.php")
       .then(ret => ret.json())
       .then(data => {
         const diff = (moment() - startTM) / 1000;
