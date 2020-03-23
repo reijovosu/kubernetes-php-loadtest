@@ -1,0 +1,26 @@
+@keyframes loginsert {
+  0% {
+    background-color: rgb(255, 168, 142);
+  }
+
+  90% {
+    background-color: rgb(255, 168, 142);
+  }
+
+  100% {
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+.logs {
+  width: calc(100vw - 8rem);
+  margin: 4rem auto 4rem auto;
+}
+
+.logs > p {
+  background-color: rgb(255, 168, 142);
+  padding: 0.2rem;
+  margin: 0.3rem;
+  border-radius: 0.3rem;
+  animation: loginsert 10s normal forwards;
+}
