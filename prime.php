@@ -1,5 +1,5 @@
 <?php
-
+$startTime = microtime(true);
 $ret['SERVER_ADDR']= $_SERVER['SERVER_ADDR'];
 $ret['hostname']= shell_exec('hostname');
 
@@ -42,3 +42,5 @@ for($i = $start; $i <= $end; $i++)
 }
 
 echo json_encode($ret);
+$logstr="Script took: " . (microtime(true) - $startTime) . " seconds";
+file_put_contents("/var/log/loadtest.log", $logstr, FILE_APPEND)
