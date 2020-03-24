@@ -1,7 +1,7 @@
 <?php
 $startTime = microtime(true);
 $ret['SERVER_ADDR']= $_SERVER['SERVER_ADDR'];
-$ret['hostname']= shell_exec('hostname');
+$ret['hostname']= trim(shell_exec('hostname'));
 
 function is_prime($number)
 {
@@ -32,7 +32,7 @@ function is_prime($number)
 // sleep(rand(1,20));
 
 $start = 0;
-$end =   1000000;
+$end =   100000;
 for($i = $start; $i <= $end; $i++)
 {
     if(is_prime($i))
@@ -42,5 +42,5 @@ for($i = $start; $i <= $end; $i++)
 }
 
 echo json_encode($ret);
-$logstr = $ret['hostname'] . ": Script took: " . (microtime(true) - $startTime) . " seconds";
+$logstr = $ret['hostname'] . ": Script took " . (microtime(true) - $startTime) . " seconds\n";
 file_put_contents("/var/log/loadtest.log", $logstr, FILE_APPEND);
